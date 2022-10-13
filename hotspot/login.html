@@ -26,15 +26,17 @@ $(if chap-id)
 		document.sendin.username.value = document.login.username.value;
 		document.sendin.password.value = hexMD5('$(chap-id)' + document.login.username.value + '$(chap-challenge)');
 		//console.log(document.sendin.password.value)
-		document.sendin.submit();
-		return false;
+		setTimeout(() => {
+			document.sendin.submit();
+			return false;
+		}, "2000")
 	    }
 
 	</script>
 $(endif)
 
-<!--<form class="vertical-form" name="login" action="$(link-login-only)" method="post" background="#A03472"
-	$(if chap-id) onSubmit="return doLogin()" $(endif)> -->
+<form class="vertical-form" name="login" action="$(link-login-only)" method="post" background="#A03472"
+	$(if chap-id) onSubmit="return doLogin()" $(endif)>
 <input type="hidden" name="dst" value="$(link-orig)" />
 <input type="hidden" name="popup" value="true" />
 <div style="margin:0;padding:50;display:inline"></div> 
@@ -47,8 +49,8 @@ $(endif)
 <div id="box">
 	<img class="logo" src="logo_sin_fondo.png" width="208px;"/>
 <input id="user" class="campos" style="margin-top: 5px" name="username" type="text" value="$(username)" placeholder="Voucher"/>
-<div id="email"></div>
-<div id="botonDiv"><input id="boton" class="boton" onclick="check()" type="submit" value="Continuar"></div>
+<input id="email2" class="campos" style="margin-top: 5px" name="email" type="email" placeholder="Email" required>
+<div id="botonDiv"><input id="boton" class="boton" onclick="guardarEmail()" type="submit" value="Continuar"></div>
 <p id="mensaje"><span style="color: rgb(6, 17, 114); font-size: 16px">Ingresar código de voucher</span></p>
 
 </div>
@@ -73,7 +75,7 @@ $(endif)
 </form>
 <script type="text/javascript">
 
-//document.login.username.focus();
+document.login.username.focus();
 
 </script>
 <script src="axios.min.js"></script>
@@ -84,7 +86,7 @@ $(endif)
 	document.getElementById("botonDiv").innerHTML = `<button id="boton" onclick="guardarEmail()" class="boton">Ingresar</button>`
 	if (codigo == "0000") {
 		document.getElementById("mensaje").innerHTML = `<span style="color: rgb(6, 17, 114); font-size: 16px">Codigo validado, escriba su email</span>`
-		document.getElementById("email").innerHTML = `<input id="email2" class="campos" style="margin-top: 5px" name="email" type="email" placeholder="Email" required>`
+		//document.getElementById("email").innerHTML = `<input id="email2" class="campos" style="margin-top: 5px" name="email" type="email" placeholder="Email" required>`
 	}else{
 		document.getElementById("mensaje").innerHTML = `<span style="color: rgb(6, 17, 114); font-size: 16px">Código validado! Pulse ingresar</span>`
 	}
@@ -93,6 +95,7 @@ $(endif)
 
 
 function guardarEmail(){
+	document.getElementById("botonDiv").innerHTML = `<button id="boton" class="boton">Ingresar</button>`
 	let email2 = document.getElementById("email2").value
 	console.log(email2)
 	const mailOb = {
