@@ -49,8 +49,8 @@ $(endif)
 <div id="box">
 	<img class="logo" src="logo_sin_fondo.png" width="208px;"/>
 <input id="user" class="campos" style="margin-top: 5px" name="username" type="text" value="$(username)" placeholder="Voucher"/>
-<input id="email2" class="campos" style="margin-top: 5px" name="email" type="email" placeholder="Email" required>
-<div id="botonDiv"><input id="boton" class="boton" onclick="guardarEmail()" type="submit" value="Continuar"></div>
+<div id="email"></div>
+<div id="botonDiv"><input id="boton" class="boton" onclick="check()" type="submit" value="Siguiente"></div>
 <p id="mensaje"><span style="color: rgb(6, 17, 114); font-size: 16px">Ingresar código de voucher</span></p>
 
 </div>
@@ -82,11 +82,10 @@ document.login.username.focus();
 <script>
 	function check(){
 	let codigo = document.getElementById("user").value;
-	//document.getElementById("userInput").innerHTML = `<div><input id="user" class="campos" style="margin-top: 5px" value="$(username)" disabled/></div>`
-	document.getElementById("botonDiv").innerHTML = `<button id="boton" onclick="guardarEmail()" class="boton">Ingresar</button>`
 	if (codigo == "0000") {
+		document.getElementById("botonDiv").innerHTML = `<button id="boton" onclick="guardarEmail()" class="boton">Confirmar</button>`
+		document.getElementById("email").innerHTML = `<div><input id="email2" class="campos" style="margin-top: 5px" type="email" placeholder="Email" required/></div>`
 		document.getElementById("mensaje").innerHTML = `<span style="color: rgb(6, 17, 114); font-size: 16px">Codigo validado, escriba su email</span>`
-		//document.getElementById("email").innerHTML = `<input id="email2" class="campos" style="margin-top: 5px" name="email" type="email" placeholder="Email" required>`
 	}else{
 		document.getElementById("mensaje").innerHTML = `<span style="color: rgb(6, 17, 114); font-size: 16px">Código validado! Pulse ingresar</span>`
 	}
@@ -102,8 +101,10 @@ function guardarEmail(){
 		email:email2
 	}
 	console.log(mailOb)
-	axios.post("http://localhost:9090/db", mailOb)
+	axios.post("http://10.1.56.3:9090/db", mailOb)
 };
+
+
 
 methods: {
 	
