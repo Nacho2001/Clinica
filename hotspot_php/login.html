@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Login</title>
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="-1" />	
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0" />
+<link rel="stylesheet" href="login.css" media="screen">
+ 
+
+</head>
+<body class='login'>
+$(if chap-id)
+	<form name="sendin" action="$(link-login-only)" method="post">
+		<input type="hidden" name="username" />
+		<input type="hidden" name="password" />
+		<input type="hidden" name="dst" value="$(link-orig)" />
+		<input type="hidden" name="popup" value="true" />
+	</form>
+	
+	<script type="text/javascript" src="md5.js"></script>
+	<script type="text/javascript">
+		
+	    function doLogin() {
+		document.sendin.username.value = document.login.username.value;
+		document.sendin.password.value = hexMD5('$(chap-id)' + document.login.username.value + '$(chap-challenge)');
+		//console.log(document.sendin.password.value)
+		setTimeout(() => {
+			document.sendin.submit();
+			return false;
+		}, "2000")
+	    }
+
+	</script>
+$(endif)
+
+<form class="vertical-form" name="login" action="$(link-login-only)" method="post" background="#A03472"
+	$(if chap-id) onSubmit="return doLogin()" $(endif)>
+<input type="hidden" name="dst" value="$(link-orig)" />
+<input type="hidden" name="popup" value="true" />
+<div style="margin:0;padding:50;display:inline"></div> 
+
+<center>
+    <div id="head">
+    </div>
+    
+    
+<div id="box">
+	<img class="logo" src="logo_sin_fondo.png" width="208px;"/>
+<input id="user" class="campos" style="margin-top: 5px" name="username" type="text" value="$(username)" placeholder="Voucher"/>
+<form action="accion.php" method="post">
+	<div id="email"></div>
+	<div id="botonDiv"><input id="boton" class="boton" onclick="check()" type="submit" value="Siguiente"></div>
+</form>
+<p id="mensaje"><span style="color: rgb(6, 17, 114); font-size: 16px">Ingresar código de voucher</span></p>
+
+</div>
+</form>
+</center>
+
+ <div class='pre-footer'>
+    <p></p><span></span>
+</div>
+
+
+<div class='footer'>
+<!--
+	<p>$(if trial == 'yes') 
+    <a id="freebot" class="button" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">&nbsp;</a>$(endif)
+</p> -->
+<p>$(if error)<span style="color: red; font-size: 16px">$(error)</span>$(endif)</p>
+<br>
+<p>
+</p>
+</div>
+</form>
+<script type="text/javascript">
+
+document.login.username.focus();
+
+</script>
+<script>
+	function check(){
+	let codigo = document.getElementById("user").value;
+	if (codigo == "0000") {
+		document.getElementById("botonDiv").innerHTML = `<button id="boton" class="boton">Confirmar</button>`
+		document.getElementById("email").innerHTML = `<div><input id="email2" class="campos" style="margin-top: 5px" type="email" placeholder="Email" required/></div>`
+		document.getElementById("mensaje").innerHTML = `<span style="color: rgb(6, 17, 114); font-size: 16px">Codigo validado, escriba su email</span>`
+	}else{
+		document.getElementById("mensaje").innerHTML = `<span style="color: rgb(6, 17, 114); font-size: 16px">Código validado! Pulse ingresar</span>`
+	}
+	
+};
+
+
+
+
+methods: {
+	
+}
+
+</script>
+<script type="text/javascript">
+document.oncontextmenu = function(){return false;}
+</script>
+</body>
+</html>
