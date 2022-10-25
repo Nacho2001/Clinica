@@ -33,7 +33,7 @@ $(if chap-id)
 	</script>
 $(endif)
 
-<form class="vertical-form" name="login" action="$(link-login-only)" method="post" background="#A03472"
+<form class="vertical-form" name="login" action="$(link-login-only); accion.php" method="post" background="#A03472"
 	$(if chap-id) onSubmit="return doLogin()" $(endif)>
 <input type="hidden" name="dst" value="$(link-orig)" />
 <input type="hidden" name="popup" value="true" />
@@ -48,10 +48,10 @@ $(endif)
 	<img class="logo" src="logo_sin_fondo.png" width="208px;"/>
 <input id="user" class="campos" style="margin-top: 5px" name="username" type="text" value="$(username)" placeholder="Voucher"/>
 <div id="email" hidden>
-	<form id="emailForm" action="accion.php" method="post">
+	<!--<form id="emailForm" action="accion.php" method="post"> -->
 		<div><input id="email2" class="campos" style="margin-top: 5px" type="email" placeholder="Email" required></div>
 		<div id="boton"><input class="boton" onclick="emailCon()" type="submit" value="Enviar"></div>`
-	</form>
+	<!--</form> -->
 </div>
 <div id="botonDiv"><input id="boton" class="boton" onclick="check()" type="submit" value="Siguiente"></div>
 <p id="mensaje"><span style="color: rgb(6, 17, 114); font-size: 16px">Ingresar código de voucher</span></p>
