@@ -32,59 +32,81 @@ $(if chap-id)
 	</script>
 $(endif)
 
-<!--
-<form class="vertical-form" name="login" background="#A03472" action="$(link-login-only)" method="post"
-$(if chap-id) onSubmit="return doLogin()" $(endif)> -->
-<input type="hidden" name="dst" value="$(link-orig)" />
-<input type="hidden" name="popup" value="true" />
-<div style="margin:0;padding:50;display:inline"></div>
 
-<center id="centro">
-    <div id="head">
-    </div>
-    
-    
-<div id="box">
-	<img class="logo" src="logo_sin_fondo.png" width="208px;"/>
-	<div>
-		<form action="accion.php" method="post" >$(if trial == 'yes')
-			<div id="campo" style="margin-top: 5px"><input id="email" class="campos" name="email" type="email" placeholder="Correo electronico" required></input></div>
-			<p id="btn-access"><a id="freebot"  class="button" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">&nbsp;</a></p>
-			<button class="button" type="submit">Push</button>
-			<p><span id="mensaje" style="color: rgb(6, 17, 114); font-size: 16px">Ingrese un email para recibir un voucher</span></p>$(endif)
-		</form>
-		$(if trial == 'no')
-		<div><input id="user" class="campos" style="margin-top: 5px" name="username" type="text" value="$(username)" placeholder="Voucher"/></div>
-		<div><input class="boton" type="submit" value="Ingresar"></div>
-		<p><span style="color: rgb(6, 17, 114); font-size: 16px">Ingresar código de voucher</span></p>$(endif)
+<div name="login">$(if trial == 'yes')
+	<input type="hidden" name="dst" value="$(link-orig)" />
+	<input type="hidden" name="popup" value="true" />
+	<div style="margin:0;padding:50;display:inline"></div>
+
+	<center id="centro">
+		<div id="head">
+		</div>
+		
+		
+	<div id="box">
+		<img class="logo" src="logo_sin_fondo.png" width="208px;"/>
+		<div>
+			<form action="accion.php" method="post">
+				<div id="campo" style="margin-top: 5px"><input id="email" class="campos" name="email" type="email" placeholder="Correo electronico" required></input></div>
+				<div input id="sendEmail"><input class="boton" style="background-color: blueviolet;" type="submit" onclick="cambio_boton()" value="Continuar"></div>
+				<p id="btn-access" hidden><a id="freebot"  class="button" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">&nbsp;</a></p>
+				<p><span id="mensaje" style="color: rgb(6, 17, 114); font-size: 16px">Ingrese un email para recibir un voucher</span></p>$(endif)
+			</form>
+		</div>
+	</center>
+
+	<div class='pre-footer'>
+							<p> </p><span></span>
+						</div>
+
+
+	<div class='footer'>
+
+	<p>$(if error)<span style="color: red; font-size: 16px">$(error)</span>$(endif)</p>
+	<br>
+	<p>
+	</p>
 	</div>
-</center>
+</div>$(if trial == 'no')
+<form class="vertical-form" name="login" background="#A03472" action="$(link-login-only)" method="post"
+	$(if chap-id) onSubmit="return doLogin()" $(endif)>
+	<input type="hidden" name="dst" value="$(link-orig)" />
+	<input type="hidden" name="popup" value="true" />
+	<div style="margin:0;padding:50;display:inline"></div>
 
- <div class='pre-footer'>
-                        <p> </p><span></span>
-                    </div>
+	<center id="centro">
+		<div id="head">
+		</div>
+		
+		
+	<div id="box">
+		<img class="logo" src="logo_sin_fondo.png" width="208px;"/>
+		<div>
+			<div><input id="user" class="campos" style="margin-top: 5px" name="username" type="text" value="$(username)" placeholder="Voucher"/></div>
+			<div><input class="boton" type="submit" value="Ingresar"></div>
+			<p><span style="color: rgb(6, 17, 114); font-size: 16px">Ingresar código de voucher</span></p>
+		</div>
+	</center>
+
+	<div class='pre-footer'>
+		<p> </p><span></span>
+	</div>
 
 
-<div class='footer'>
+	<div class='footer'>
 
-<p>$(if error)<span style="color: red; font-size: 16px">$(error)</span>$(endif)</p>
-<br>
-<p>
-</p>
-</div>
-<!-- </form> -->
+	<p>$(if error)<span style="color: red; font-size: 16px">$(error)</span>$(endif)</p>
+	<br>
+	<p>
+	</p>
+	</div>
+</form>$(endif)
 
 <script type="text/javascript">
-
-  document.login.username.focus();
-	function after_mail(){
-		let email2 = document.getElementById(email).value
-		const mailOb = {
-			email:email2
-		}
-		axios.post("http://10.1.56.3:9090/db", mailOb)
+	function cambio_boton(){
+		document.getElementById("sendEmail").setAttribute("hidden","")
+		document.getElementById("btn-access").removeAttribute("hidden")
 	}
-
 </script>
 <script type="text/javascript">
 document.oncontextmenu = function(){return false;}

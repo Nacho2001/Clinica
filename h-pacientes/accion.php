@@ -4,9 +4,9 @@ $email = $_POST['email'];
 
 //Conexion con la base
 function conn(){ 
-    $hostname = "10.1.56.3";
+    $hostname = "10.1.1.192";
     $userdb = "login";
-    $passworddb = "cp123456";
+    $passworddb = "login";
     $dbname = "loginData";
     $conectar = mysqli_connect($hostname, $userdb, $passworddb, $dbname);
     return $conectar;
