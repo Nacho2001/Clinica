@@ -106,49 +106,21 @@ font-family:inherit;outline: none;
     padding-top: 22px;
 }
 
-/*---------------Boton_disabled---------*/
-.botonDisabled{
-	-webkit-appearance:none;color:#fff;
-	background:#59db80; 
-        /*background-image:url(door.png); */
-	background-repeat: no-repeat; 
-        background-position:center; 
-        opacity: 1;
-    border:none;
-    border-radius:5px;
-    height:42px;width:234px;font-size:16px;font-weight:400;outline: 10px;text-transform:none;
-    cursor:pointer;
-    margin-top:8px;
-    }
-
-    .vertical-form .footer{
-    position: relative;
-    top:-175px;
-    text-align:center;
-    color:#666666;}
-
-.vertical-form .pre-footer{
-    position: relative;
-    top:-200px;
-    text-align:center;
-    color:#666666;
-    padding-top: 22px;
-}
 .vertical-form .footer a{text-decoration:none;color:#4285F4;}
     @media (max-width:450px){
 
-    }
+       }
 #freebot{
   
     -webkit-appearance:none;color:#fff;
     background:#0e9f3a; 
-    background-image:url(unlock-clock.png);
+    background-image:url(door.png);
     background-repeat: no-repeat; 
     background-position:center; 
     opacity: 1;
     border:none;
     border-radius:5px;
-    height:32px;width:115px;
+    height:42px;width:234px;font-size:16px;font-weight:400;outline:0;text-transform:none;
     cursor:pointer;
     display:inline-block;
 
