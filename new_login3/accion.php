@@ -12,11 +12,18 @@ function conn(){
     $conectar = mysqli_connect($hostname, $userdb, $passworddb, $dbname); // Conexion con la base
     return $conectar;
 }
-if ( $email != "" ) { // Revisa si el campo email se encuentra vacio, si es así no se envia a la base
+if ( $email != "" ) { // Revisa si el campo email se encuentra vacio, continua con el proceso
     $conectar = conn();
     $sql = "insert into login(email) value ('$email')"; // Consulta SQL para ingresar el $email
     $result = mysqli_query($conectar, $sql)or trigger_error("Fallo la peticion, error sql:".mysqli_error($conectar)); // Ejecuta la consulta, si hay error muestra el mensaje
+    // Envia email con codigo de voucher
+    $destinatario = $email;
+    $asunto = "Codigo de voucher";
+    $mensaje = "Bienvenido a Clínica Pasteur! Su código de voucher es: ";
+    mail($destinatario,$asunto,$mensaje);
+
 }
+
 header("Location: $backlink"); // Al final, redirige al mk
 exit();
 ?>
