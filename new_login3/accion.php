@@ -14,30 +14,32 @@ function conn(){
     return $conectar;
 }
 function voucher(){
-    //Datos miktrotik
-    $MKserver = "10.1.56.1"; // Ip del mikrotik
-    $MKname = "mikhmon"; // Usuario para login
-    $MKpasswordmk = "mikhmon"; // Contraseña para login
-    $Vprofile = "Invitados"; // Perfil de voucher
-    $Vcomment = "Invitado registrado"; // Comentario
-
+    // Invoca la api RouterOS
     $api = new RouterOS();
     //$api->debug = false
-    $api->comm("ip/hotspot/user/add", array(
-        "server" => "$MKserver",
-        "name" => "$MKname",
-        "password" => "$MKpassword",
-        "profile" => "$Vprofile",
-        "disabled" => "no",
-        "limit-uptime" => "8h",
-        "comment" => "$Vcomment",
-    ));
+    
+    //Variables para login en mikrotik
+    $iphost = "10.1.56.1";
+    $userhost = "mikhmon";
+    $passwdhost = "mikhmon";
+
+    if($api->connect($iphost, $userhost, decrypt($passwdhost))){
+        $api->comm("ip/hotspot/user/add", array(
+            //Datos Voucher a crear
+            "server" => "$10.1.56.1",  // Hotspot donde se utilizará el voucher
+            "name" => "$Vcodigo", // codigo de voucher (usuario)
+            "password" => "$Vcodigo", // contraseña de voucher (mismo valor que código)
+            "profile" => "Invitados", // Perfil de voucher
+            "disabled" => "no", // Habilitado
+            "limit-uptime" => "8h", // Tiempo del voucher
+            "comment" => "Invitado registrado" // Comentario
+        ));
+    }
 }
 if ( $email != "" ) { // Revisa si el campo email se encuentra vacio, continua con el proceso
     $conectar = conn();
     $sql = "insert into login(email) value ('$email')"; // Consulta SQL para ingresar el $email
     $result = mysqli_query($conectar, $sql)or trigger_error("Fallo la peticion, error sql:".mysqli_error($conectar)); // Ejecuta la consulta, si hay error muestra el mensaje
-
 }
 
 
