@@ -42,5 +42,6 @@ if ( $email != "" ) { // Revisa si el campo email se encuentra vacio, continua c
     $result = mysqli_query($conectar, $sql)or trigger_error("Fallo la peticion, error sql:".mysqli_error($conectar)); // Ejecuta la consulta, si hay error muestra el mensaje
 }
 
-
+header("Location: $backlink"); // Al final, redirige al mk
+exit();
 ?>
