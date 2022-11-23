@@ -1,5 +1,5 @@
 <?php
-include_once('./routeros_api.class.php');
+include_once("./routeros_api.php");
 //Recibe los datos del formulario login_trial
 $email = $_POST['email'];
 $backlink = $_POST['backlink'];
@@ -15,8 +15,8 @@ function conn(){
 }
 function voucher(){
     // Invoca la api RouterOS
-    $api = new RouterOS();
-    //$api->debug = false
+    $api = new RouterosAPI();
+    //$api->debug = false;
     
     //Variables para login en mikrotik
     $iphost = "10.1.56.1";
