@@ -13,6 +13,11 @@ function conn(){
     $conectar = mysqli_connect($hostname, $userdb, $passworddb, $dbname); // Conexion con la base
     return $conectar;
 }
+function crearVoucher(){
+    $caracteres = "0123456789abcdefghijklmnopqrstuvwxyz";
+    return substr(str_shuffle($caracteres),0,5);
+}
+
 function voucher(){
     // Invoca la api RouterOS
     $api = new RouterosAPI();
