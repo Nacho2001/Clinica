@@ -4,9 +4,9 @@ include_once('./lib/routeros_api.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require '.lib/PHPMailer/src/Exception.php';
-require '.lib/PHPMailer/src/PHPMailer.php';
-require '.lib/PHPMailer/src/SMTP.php';
+require './lib/PHPMailer/src/Exception.php';
+require './lib/PHPMailer/src/PHPMailer.php';
+require './lib/PHPMailer/src/SMTP.php';
 //Recibe los datos del formulario login_trial
 $email = $_POST['email']; //email
 $backlink = $_POST['backlink']; //link de retorno
