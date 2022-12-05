@@ -30,15 +30,15 @@ function email(){
     $mail = new PHPMailer(true);
     //Ajustes server
     //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
-    //$mail->isSMTP(); // Utilizar SMTP
-    //$mail->Host = 'smtp.example.com'; //SMTP al que se enviara
-    //$mail->SMTPAuth = true;   //Habilita autenticacion SMTP
-    //$mail->Username = ''; //SMTP nombre de usuario
+    $mail->isSMTP(); // Utilizar SMTP
+    $mail->Host = 'cpasteur.com.ar'; //SMTP al que se enviara
+    $mail->SMTPAuth = true;   //Habilita autenticacion SMTP
+    $mail->Username = 'sistemas9@cpasteur.com.ar'; //SMTP nombre de usuario
     //$mail->Password = '';   //SMTP contraseña
-    //$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;    //Habilita encriptacion
-    //$mail->Port = 465;    // Puerto
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;    //Habilita encriptacion
+    $mail->Port = 465;    // Puerto
     //Email remitente y destinatario
-    $mail->setFrom('no-reply@cpasteur.com.ar'); // Remitente
+    $mail->setFrom('sistemas9@cpasteur.com.ar'); // Remitente
     $mail->addAddress('nachomigoni@gmail.com'); // Destinatario
     //Contenido de email
     $mail->isHTML(true); // Formato html para el contenido
