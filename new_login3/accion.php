@@ -42,9 +42,9 @@ function voucher_mail($email, $Vcode){
             "comment" => "Invitado registrado", // Comentario
         ));
         $api->comm("/tool/e-mail/send", array(
-            "to" => $email,
-            "subject" => "Código de voucher Wi-Fi",
-            "body" => "Su código de voucher es: $Vcode",
+            "to" => $email, // Destinatario
+            "subject" => "Código de voucher Wi-Fi", // Asunto del mail
+            "body" => "Su código de voucher es: $Vcode", // Cuerpo del mensaje
         ));
     }
 }
