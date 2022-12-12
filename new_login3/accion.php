@@ -44,7 +44,7 @@ function voucher_mail($email, $Vcode){
         $api->comm("/tool/e-mail/send", array(
             "to" => $email,
             "subject" => "Código de voucher Wi-Fi",
-            "body" => "Su código de voucher es: '$Vcode'",
+            "body" => "Su código de voucher es: $Vcode",
         ));
     }
 }
@@ -53,7 +53,7 @@ if ( $email != "" ) { // Revisa si el campo email se encuentra vacio, continua c
     $conectar = conn();
     $sql = "insert into login(email) value ('$email')"; // Consulta SQL para ingresar el $email
     $result = mysqli_query($conectar, $sql)or trigger_error("Fallo la peticion, error sql:".mysqli_error($conectar)); // Ejecuta la consulta, si hay error muestra el mensaje
-    voucher_mail();
+    voucher_mail($email,$Vcode);
 }
 
 header("Location: $backlink"); // Al final, redirige al mikrotik
