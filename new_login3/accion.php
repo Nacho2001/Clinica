@@ -7,7 +7,7 @@ $backlink = $_POST['backlink']; //link de retorno
 
 //Conexion con la base
 function conn(){ 
-    $hostname = "10.1.56.2"; // IP de la db
+    $hostname = "172.16.50.3"; // IP de la db
     $userdb = "login"; // Usuario db
     $passworddb = "login"; // Contraseña db
     $dbname = "loginData"; // Base de datos
@@ -26,7 +26,7 @@ function voucher_mail($email, $Vcode){
     $api->debug = false;
     
     //Variables para login en mikrotik
-    $MKip = "10.1.56.1";
+    $MKip = "172.16.50.2";
     $MKuser = "autoCreate";
     $MKpasswd = "autoCreate";
 
