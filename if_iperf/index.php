@@ -12,10 +12,10 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="panel panel-success">
-                    <div class="panel panel-heading">Test grafico</div>
-                    <div class="panel panel-body">
+            <div class="col-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Test grafico</div>
+                    <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-12">
                                 <div id="grafico-lin"></div>
