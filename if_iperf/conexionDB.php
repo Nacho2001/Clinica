@@ -7,4 +7,7 @@
         $conectar = mysqli_connect($hostname, $userdb, $passworddb, $dbname); // Conexion con la base
         return $conectar;
     }
+    if (conn()){
+        echo "Conexion establecida";
+    }
 ?>
