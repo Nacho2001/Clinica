@@ -1,12 +1,12 @@
 <?php
-function conn(){ 
-    $hostname = "10.1.1.192"; // IP de la db
-    $userdb = "iperf"; // Usuario db
-    $passworddb = "iperf"; // Contraseña db
-    $dbname = "iperf"; // Base de datos
-    $conectar = mysqli_connect($hostname, $userdb, $passworddb, $dbname); // Conexion con la base
-    return $conectar;
-};
+    function conn(){ 
+        $hostname = "10.1.1.192"; // IP de la db
+        $userdb = "iperf"; // Usuario db
+        $passworddb = "iperf"; // Contraseña db
+        $dbname = "iperf"; // Base de datos
+        $conectar = mysqli_connect($hostname, $userdb, $passworddb, $dbname); // Conexion con la base
+        return $conectar;
+    };
 
     $conexion = conn();
     $sql = 'select dia,medido from diario_ps where ubicacion = "a2sw03"';
