@@ -14,10 +14,11 @@
             <option value="0">Elegir</option>
             <?php
                 $conn = mybase();
-                $query_sw = mysqli_query($conn,'select * from switches');
-                while ($switches = mysqli_query_array($query_sw)){
-                    echo '<option value= "'.$switches["id"].'">'.$switches["switch"].'</option>';
-                }
+                $sql = "select * from iperf";
+                $query_sw = mysqli_query($conn, $sql);
+                while ($valores = mysqli_fetch_array($query_sw)):
+                    echo '<option value="'.$valores["id"].'">'.$valores["switch"].'</option>';
+                endwhile;
             ?>
         </select>
         <button>Buscar</button>
