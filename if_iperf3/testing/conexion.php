@@ -1,6 +1,6 @@
 <?php
     function conn(){ 
-        $hostname = "10.1.1.192"; // IP de la db
+        $hostname = "localhost"; // IP de la db
         $userdb = "iperf"; // Usuario db
         $passworddb = "iperf"; // Contraseña db
         $dbname = "iperf"; // Base de datos

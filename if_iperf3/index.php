@@ -1,5 +1,5 @@
-<?php require_once "sql_connection.php"?>
 <!DOCTYPE html>
+<?php require_once "sql_connection.php"?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,15 +10,14 @@
 <body>
     <div class="row">
         <label>Seleccionar switch</label>
-        <select id="switch">
+        <select>
             <option value="0">Elegir</option>
             <?php
-                $conn = mybase();
-                $sql = "select * from iperf";
-                $query_sw = mysqli_query($conn, $sql);
-                while ($valores = mysqli_fetch_array($query_sw)):
-                    echo '<option value="'.$valores["id"].'">'.$valores["switch"].'</option>';
-                endwhile;
+                $mysqli = mybase();
+                $query = $mysqli -> query ("SELECT id,switch FROM switches");
+                while ($lista = mysqli_fetch_array($query)) {
+                  echo '<option value="'.$lista['id'].'">'.$lista['switch'].'</option>';
+                }
             ?>
         </select>
         <button>Buscar</button>
