@@ -19,19 +19,4 @@
         }
     };
 
-    function c_grafico(){
-        /*$id_switch = $_POST["switch"];
-        $mysqli = mybase();
-        $sql = "select dia,medido from diario_ps where switch = '$id_switch'; ";
-        $consulta = mysqli_query($mysqli,$sql);
-        $valoresX = array(); // fecha
-        $valoresY = array(); // mediciones
-        while ($ver = mysqli_fetch_row($consulta)){
-            $datoX = $ver[0];
-            $datoY = $ver[1];
-            $valoresX[] = json_encode($datoX);
-            $valoresY[] = json_encode($datoY);
-        };*/
-        echo "Ejecutado! ;)";
-    };
 ?>

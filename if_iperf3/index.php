@@ -10,37 +10,19 @@
 </head>
 <body>
     <div class="row">
-        <label>Seleccionar switch</label>
-        <select id="switch" name="switch" method=post>
+        <label>Seleccionar switch</label><br>
+        <form action="grafico1.php" method="post">
+        <select id="switch" name="switch">
             <option value="0">Elegir</option>
             <?php select(); ?>
         </select>
-        <button onclick="graf()">Buscar</button>
+        <button>Buscar</button>
+        </form>
         <div class="container">
             <div class="row">
-                <div id="gr_campo"></div>
+                <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
             </div>
         </div>
     </div>
-    <script>
-    function graf(){
-        /*<?php c_grafico(); ?>
-        var xValues = [<?php for($i=0;$i<count($valoresX);$i++){echo $valoresX[$i].',';} ?>];
-        new Chart("myChart", {
-        type: "line",
-        data: {
-            labels: xValues,
-            datasets: [{ // Valores de Y
-            data: [<?php for($i=0;$i<count($valoresY);$i++){echo $valoresY[$i].',';} ?>],
-            borderColor: "green",
-            fill: false
-            }] 
-        },
-        options: {
-            legend: {display: false}
-        }
-        });*/ 
-    }
-    </script>
 </body>
 </html>
