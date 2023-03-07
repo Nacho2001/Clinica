@@ -1,6 +1,7 @@
 body {
 padding:0;margin:0 auto;
     background: linear-gradient(#e3b3f6, #eceff1);
+    background-attachment: fixed; 
     position:relative;
     top: -35px;
     font-family:arial;
