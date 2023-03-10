@@ -10,12 +10,14 @@
 </head>
 <body>
     <div class="row">
-        <label>Seleccionar switch</label><br>
-        <select id="switch" name="switch">
-            <option value="0">Elegir</option>
-            <?php select(); ?>
-        </select>
-        <button>Buscar</button>
+        <form action="sw_form" method="post">
+            <label>Seleccionar switch</label><br>
+            <select id="switch" name="switch">
+                <option value="0">Elegir</option>
+                <?php select(); ?>
+            </select>
+            <button>Buscar</button>
+        </form>
         <div class="container">
             <div class="row">
                 <canvas id="Chart1" style="width:100%;max-width:600px"></canvas>
