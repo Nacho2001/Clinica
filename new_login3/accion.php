@@ -51,7 +51,7 @@ function voucher_mail($email, $Vcode){
 // Inicio del programa
 if ( $email != "" ) { // Revisa si el campo email se encuentra vacio, continua con el proceso
     $conectar = conn();
-    $sql = "insert into login(email) value ('$email')"; // Consulta SQL para ingresar el $email
+    $sql = "insert into email(email) value ('$email')"; // Consulta SQL para ingresar el $email
     $result = mysqli_query($conectar, $sql)or trigger_error("Fallo la peticion, error sql:".mysqli_error($conectar)); // Ejecuta la consulta, si hay error muestra el mensaje
     voucher_mail($email,$Vcode);
 }
