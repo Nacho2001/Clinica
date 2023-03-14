@@ -20,9 +20,4 @@
           echo '<option value="'.$lista['switch'].'">'.$lista['switch'].'</option>';
         }
     };
-
-    function graficar($mysqli){
-        $switch = $_POST['sw_form'];
-        $query = $mysqli -> query ("select dia,medido from diario_ps where ubicacion = '$switch'");
-    }
 ?>
