@@ -1,6 +1,7 @@
 body {
-padding:0;margin:0 auto;
+    padding:0;margin:0 auto;
     background: linear-gradient(#e3b3f6, #eceff1);
+    background-attachment: fixed; 
     position:relative;
     top: -35px;
     font-family:arial;
@@ -41,14 +42,14 @@ legend{
 
 
 }
-#userdiv
-{
-    background: url('Logo\ Imagen_sin\ fondo.png') no-repeat center;
+
+#userdiv{
+    /*background: url('Logo\ Imagen_sin\ fondo.png') no-repeat center;*/
     background-size: 208px 105px;
     width: 208px;
     height: 105px;
     border-radius:0%;
-    /*margin: 5px*/;
+    /*margin: 5px;*/
 }
 
 
@@ -90,13 +91,14 @@ font-family:inherit;outline: none;
     height:42px;width:234px;font-size:16px;font-weight:400;outline:0;text-transform:none;
     cursor:pointer;
     margin-top:8px;
-    }
+}
 
-    .vertical-form .footer{
+.vertical-form .footer{
     position: relative;
     top:-175px;
     text-align:center;
-    color:#666666;}
+    color:#666666;
+}
 
 .vertical-form .pre-footer{
     position: relative;
@@ -114,17 +116,32 @@ font-family:inherit;outline: none;
   
     -webkit-appearance:none;color:#fff;
     background:#0e9f3a; 
-    background-image:url(door.png);
+    background-image:url(unlock-clock.png);
     background-repeat: no-repeat; 
     background-position:center; 
     opacity: 1;
     border:none;
     border-radius:5px;
-    height:42px;width:234px;font-size:16px;font-weight:400;outline:0;text-transform:none;
+    height:32px;width:115px;
     cursor:pointer;
     display:inline-block;
 
 }
+/*
+#boton_qr{
+    color:#fff;
+    background:#0e489f; 
+    background-repeat: no-repeat; 
+    background-position: bottom 50% center;
+    background-image:url(qr-code2.png);
+    opacity: 1;
+    border:none;
+    border-radius:5px;
+    height:42px;width:160px;
+    cursor:pointer;
+    display:inline-block;
+} */
+
 #passDiv{
     display: block
 }
