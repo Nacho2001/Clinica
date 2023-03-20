@@ -6,6 +6,7 @@ $email = $_POST['email']; //email
 $backlink = $_POST['backlink']; //link de retorno
 $ip = $_POST['ip_send']; // IP del usuario
 $preIP = substr($ip, 0,10); // Toma el prefijo de la IP que tomo el cliente
+$hotspot = "default"; // Red en la que será válido el voucher creado
 
 //Conexion con la base
 function conn(){ 
@@ -22,8 +23,7 @@ function crearVoucher(){ // Genera código de voucher (aleatorio)
 }
 $Vcode = crearVoucher(); // Codigo guardado en variable
 
-function voucher_mail($email, $Vcode){
-    $hotspot = "default";
+function voucher_mail($preIP, $hotspot, $email, $Vcode){
     if ($preIP == "172.16.62." || $preIP == "172.16.63.") { // Segun el prefijo que tenga, seleccionara el hotspot correspondiente al sector donde se encuentra
         $hotspot = "wifi_a_inv";
     } elseif ($preIP == "172.16.68." || $preIP == "172.16.69.") {

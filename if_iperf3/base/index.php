@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php require_once "conexion.php" ?>
 <html>
-<script src="Chart.js"></script>
+<script src="../Chart.js"></script>
 <body>
 <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 <script>

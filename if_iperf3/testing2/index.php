@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php require_once "functions.php"?>
-<script src="Chart.js"></script>
+<script src="../Chart.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,15 +10,15 @@
 </head>
 <body>
     <a>Seleccionar switches</a><br>
-    <form id="switch" action="index.php" method="post" style="margin-top: 5px">
-        <select>
-            <option value="0">Switch</option>
+    <form method="post" action="functions.php" style="margin-top: 5px">
+        <select name="switch">
+            <option value="none">Switch</option>
             <?php host($conexion);?>
         </select>
-        <button style="margin-top: 10px" onclick="take_var()">Añadir</button>
+        <input type="submit" style="margin-top: 10px" value="Pulsar">
     </form>
     <div>
-    <?php if ($_POST){
+    <?php if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $switch = $_POST["switch"];
         data();
     }
@@ -27,7 +27,6 @@
     </div>
 </body>
 <script>
-    let select = document.getElementById("select");
     function take_var(){
         let xValues = [<?php for($i=0; $i<$cont($value_X); $i++){echo $value_X[$i].'.';} ?>];
         new Chart("grafico", {
