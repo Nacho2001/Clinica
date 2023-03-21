@@ -21,10 +21,10 @@
         $sql = 'select dia,medido from diario_ps where ubicacion = "'.$switch.'"';
         $data_sw = mysqli_query($conexion,$sql);
         
-        /*while ($ver = mysqli_fetch_row($data_sw)){
+        while ($ver = mysqli_fetch_row($data_sw)){
             $value_X[] = json_encode($ver[0]);
             $value_Y[] = json_encode($ver[1]);
-        }*/
+        }
     };
 ?>
 <!DOCTYPE html>
@@ -49,6 +49,9 @@
     }
     ?>
     <canvas id="grafico" style="width: 100%; max-width: 600px;"></canvas>
+    <?php 
+        for($i=0; $i<$cont($value_X); $i++){echo $value_X[$i].'.';}
+    ?>
 </body>
 <script>
     function take_var(){

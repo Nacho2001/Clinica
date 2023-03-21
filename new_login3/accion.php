@@ -25,21 +25,21 @@ $Vcode = crearVoucher(); // Codigo guardado en variable
 
 function voucher_mail($preIP, $hotspot, $email, $Vcode){
     if ($preIP == "172.16.62." || $preIP == "172.16.63.") { // Segun el prefijo que tenga, seleccionara el hotspot correspondiente al sector donde se encuentra
-        $hotspot = "wifi_a_inv";
+        $hotspot = "H_wifi_a_inv";
     } elseif ($preIP == "172.16.68." || $preIP == "172.16.69.") {
-        $hotspot = "wifi_b_inv";
+        $hotspot = "H_wifi_b_inv";
     } elseif ($preIP == "172.16.74." || $preIP == "172.16.75.") {
-        $hotspot = "wifi_c_inv";
+        $hotspot = "H_wifi_c_inv";
     } elseif ($preIP == "172.16.80." || $preIP == "172.16.81.") {
-        $hotspot = "wifi_d_inv";
+        $hotspot = "H_wifi_d_inv";
     } elseif ($preIP == "172.16.86." || $preIP == "172.16.87.") {
-        $hotspot = "wifi_e_inv";
+        $hotspot = "H_wifi_e_inv";
     } elseif ($preIP == "172.16.92." || $preIP == "172.16.93.") {
-        $hotspot = "wifi_f_inv";
+        $hotspot = "H_wifi_f_inv";
     } elseif ($preIP == "172.16.98." || $preIP == "172.16.99.") {
-        $hotspot = "wifi_g_inv";
+        $hotspot = "H_wifi_g_inv";
     } elseif ($preIP == "172.16.104" || $preIP == "172.16.105") {
-        $hotspot = "wifi_h_inv";
+        $hotspot = "H_wifi_h_inv";
     };
 
     // Invoca la api RouterOS
