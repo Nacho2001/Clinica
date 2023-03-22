@@ -81,7 +81,7 @@ body {
     /*---------------Boton---------*/
     .boton{
         -webkit-appearance:none;color:#fff;
-        background:#0e9f3a; 
+        background:#0e5e9f; 
             /*background-image:url(door.png); */
         background-repeat: no-repeat; 
             background-position:center; 
@@ -90,6 +90,7 @@ body {
         border-radius:5px;
         height:42px;width:234px;font-size:16px;font-weight:400;outline:0;text-transform:none;
         cursor:pointer;
+        margin-top: 10px;
         }
     
         .vertical-form .footer{
