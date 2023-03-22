@@ -76,7 +76,7 @@ if ( $email != "" ) { // Revisa si el campo email se encuentra vacio, continua c
     $conectar = conn();
     $sql = "insert into email(fecha,email) values ('$fecha','$email')"; // Consulta SQL para ingresar el $email
     $result = mysqli_query($conectar, $sql)or trigger_error("Fallo la peticion, error sql:".mysqli_error($conectar)); // Ejecuta la consulta, si hay error muestra el mensaje
-    voucher_mail($email,$Vcode);
+    voucher_mail($preIP, $hotspot, $email, $Vcode);
 }
 
 header("Location: $backlink"); // Al final, redirige al mikrotik
