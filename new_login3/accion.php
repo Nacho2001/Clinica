@@ -59,7 +59,7 @@ function voucher_mail($preIP, $hotspot, $email, $Vcode){
             "name" => $Vcode, // codigo de voucher (usuario)
             "password" => $Vcode, // contraseña de voucher (mismo valor que código)
             "profile" => "Invitados", // Perfil de voucher
-            "limit-uptime" => "8h", // Tiempo del voucher
+            "limit-uptime" => "2h", // Tiempo del voucher
             "comment" => "Invitado registrado", // Comentario
         ));
         $api->comm("/tool/e-mail/send", array(
