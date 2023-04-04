@@ -1,24 +1,25 @@
-<?php /*
-function base(){ // Conexion con base de datos
-    // Orden de datos en conexion: "host", "usuarioDB", "contraseñaDB", "nombreDB"
-    $conexion = mysqli_connect("localhost", "iperf", "iperf", "iperf");
-    // Sale de la funcion con la conexion;
-    return $conexion;
-};*/
-$base = new mysqli ("localhost", "iperf", "iperf", "iperf");
+<?php
 
-function listarSwitches(){ // llama a la base de datos y consulta ls switches
-    // Invoca la funcion anterior para iniciar la conexion
-    $conn = base();
-    // Envia la consulta a la base y la resuesta se guarda en $consulta
-    $consulta = mysqli_query($base,"select switch from switches");
-    // Convierte el resultado en un array
-    $switchArray = fetch_array($consulta);
-    // Utiliza el bucle para recorrer el array
-    for($i = 0; $i <= count($switchArray); $i++){
-        $element = $switchArray[$i];
-        // Para cada elemento de la lista, crea un option del select
+function conexionBase(){
+    // Conexión con db = mysql_connect('ip_de_bd', 'usuario', 'clave', 'nombre_db')
+    $base = mysqli_connect('localhost', 'iperf', 'iperf', 'iperf'); // Conexion con la base
+    return $base;
+}
+
+function host(){
+    $conn = conexionBase();
+    $resp = mysqli_query($conn,"select switch from switches");
+    while ($lista = mysqli_fetch_array($resp)){
         echo '<option value = "'.$lista['switch'].'">'.$lista['switch'].'</option>';
+    };
+};
+
+if($_SERVER["request method"] == "POST"){
+    $switch = $_POST["switch"];
+    if($switch == 0){
+        echo "Elegir valor válido";
+    }else{
+        echo $switch;
     }
 }
 ?>
