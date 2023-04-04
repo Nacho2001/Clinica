@@ -6,9 +6,10 @@ function conexionBase(){
     return $base;
 }
 
-function host(){
-    $conn = conexionBase();
-    $resp = mysqli_query($conn,"select switch from switches");
+$conn = conexionBase();
+
+function host($conexion){
+    $resp = mysqli_query($conexion,"select switch from switches");
     while ($lista = mysqli_fetch_array($resp)){
         echo '<option value = "'.$lista['switch'].'">'.$lista['switch'].'</option>';
     };
@@ -19,7 +20,19 @@ if($_SERVER["request method"] == "POST"){
     if($switch == 0){
         echo "Elegir valor válido";
     }else{
-        echo $switch;
+        valoresGrafico($conn,$switch);
+    }
+}
+
+function valoresGrafico($conexion,$switch){
+    $resp = mysqli_query($conexion,'select dia,medido from diario_ps where ubicacion = "'+$switch+'"');
+    $valueX = array();
+    $valueY = array();
+    while($ver = mysqli_fetch_row($resp)){
+        $datoX = $ver[0];
+        $datoY = $ver[1];
+        $valueX = json_encode($datoX);
+        $valueY = json_encode($datoY);
     }
 }
 ?>
