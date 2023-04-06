@@ -15,24 +15,27 @@ function host($conexion){
     };
 };
 
-if($_SERVER["request method"] == "POST"){
-    $switch = $_POST["switch"];
-    if($switch == 0){
-        echo "Elegir valor válido";
-    }else{
-        valoresGrafico($conn,$switch);
-    }
-}
-
-function valoresGrafico($conexion,$switch){
-    $resp = mysqli_query($conexion,'select dia,medido from diario_ps where ubicacion = "'+$switch+'"');
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $switch = $_POST['switch'];
     $valueX = array();
     $valueY = array();
+    $resp = mysqli_query($conn,'select dia,medido from diario_ps where ubicacion = "'.$switch.'"');
     while($ver = mysqli_fetch_row($resp)){
         $datoX = $ver[0];
         $datoY = $ver[1];
-        $valueX = json_encode($datoX);
-        $valueY = json_encode($datoY);
+        $valueX[] = json_encode($datoX);
+        $valueY[] = json_encode($datoY);
+    }
+    //valoresGrafico($conn,$switch);
+}
+
+function valoresGrafico($conexion,$switch){
+    $resp = mysqli_query($conexion,'select dia,medido from diario_ps where ubicacion = "'.$switch.'"');
+    while($ver = mysqli_fetch_row($resp)){
+        $datoX = $ver[0];
+        $datoY = $ver[1];
+        $valueX[] = json_encode($datoX);
+        $valueY[] = json_encode($datoY);
     }
 }
 ?>

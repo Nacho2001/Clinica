@@ -12,7 +12,7 @@
     <a>Seleccionar switches</a><br>
     <form action="index.php" method="post">
     <div style="margin-top: 5px">
-        <select id="switch">
+        <select id="switch" name="switch">
             <option value="0">Switch</option>
             <?php host($conn);?>
         </select>
@@ -21,25 +21,28 @@
         <button>Añadir</button><br>
     </div>
     </form>
-    <button>Ver gráfico</button>
-    <canvas id="grafico" style="width:100%;max-width:600px" hidden></canvas>
+    <button onclick="grafico()">Ver gráfico</button>
+    <div style="background-color: yellow; ">
+        <canvas id="chart" hidden></canvas>
+    </div>
 </body>
 <script>
     function grafico(){
-        document.getElementbyId("grafico").removeAtrribute("hidden");
-        let Xvalues = [<?php for($i=0;$i<count($valoresX);$i++){echo $valoresX[$i].',';} ?>];
-        new Chart("grafico", {
+        document.getElementById("chart").innerHTML = 
+        `<canvas id="chart" style="width:250px"></canvas>`;
+        let xValues = [<?php for($i=0;$i<count($valueX);$i++){echo $valueX[$i].',';} ?>];
+        new Chart("chart", {
             type: "line",
             data: {
                 labels: xValues,
                 datasets: [{
-                    data: [<?php for($i=0;$i<count($valoresX);$i++){echo $valoresX[$i].',';} ?>],
+                    data: [<?php for($i=0;$i<count($valueY);$i++){echo $valueY[$i].',';} ?>],
                     borderColor: "green",
                     fill: false
                 }]
             },
             options: {
-                legends: {display: false}
+                legend: {display: false}
             }
         });
     }
