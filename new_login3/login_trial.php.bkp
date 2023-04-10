@@ -1,9 +1,9 @@
 <?php // Obtiene las variables del login del mk
-$ip = $_POST['ip'];
-$macesc = $_POST['mac-esc'];
-$username =  $_POST['username'];
-$linkloginonly =  $_POST['link-login-only'];
-$linkorigesc =  $_POST['link-orig-esc'];
+$ip = $_GET['ip'];
+$macesc = $_GET['mac-esc'];
+$username =  $_GET['username'];
+$linkloginonly =  $_GET['link-login-only'];
+$linkorigesc =  $_GET['link-orig-esc'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
