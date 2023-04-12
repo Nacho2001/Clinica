@@ -9,17 +9,18 @@
 </head>
 <body>
     <div>
-        <form action="index.php" method="post">
+        <form action="index.php" method="get" id="switches">
+            <div id="switches">
             <h3>Seleccinar switch</h3>
-            <select name="switch" id="switch">
-                <option value="0">switch</option>
-                <?php host($conn);?>
-            </select>
-            <button>Añadir</button>
+                <select name="switch" id="switch">
+                    <option value="0">switch</option>
+                    <?php host($conn);?>
+                </select>
+            </div>
         </form>
-    </div>
-    <div id="lista_switches" style="margin-top: 5px;">
-        <a>Seleccionados: <?php //for ($i=0; $i < count($lista_switches) ; $i++){ echo $lista_switches[i];}; ?></a>
+        <div style="margin-top: 5px;">
+            Seleccinados: <?php for($i=0;$i<count($lista_switches);$i++){echo $lista_switches[$i].',';} ?>
+        </div>
     </div>
 </body>
 </html>
