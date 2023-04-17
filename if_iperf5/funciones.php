@@ -15,32 +15,24 @@ function host($conexionBase){
         echo '<option value = "'.$lista['switch'].'">'.$lista['switch'].'</option>';
     };
 };
-
-if($_SERVER["REQUEST_METHOD"] == "GET"){
+/*
+if($_SERVER["REQUEST_METHOD"] == "POST"){
     $switch = $_POST['switch'];
     array_push($lista_switches,$switch);
-    
-    /*for ($i=0; $i < count($lista_switches); $i++) { 
-        $datos.'$i' = array();
-        //$datos.$i = ["1","2"];
-        echo "$datos.$i";
-        $X = array();
-        $Y = array();
-        $consulta = mysqli_query($conexionBase,'select dia,medido from diario_ps where ubicacion = "'.$lista_switches[$i].'"');
-        while($ver = mysqli_fetch_row($consulta)){
-            $datoX = $ver[0];
-            $datoY = $ver[1];
-            $X[] = json_encode($datoX);
-            $Y[] = json_encode($datoY);
-        }
-        //array_push($datos.$i,$X,$Y);
-    }*/
-}
-
-if($_SERVER["REQUEST_METHOD" == "POST"]){
+}*/
+if($_SERVER["REQUEST_METHOD"] == "GET"){
     $cont=0;
     for ($i=0; $i < count($lista_switches); $i++) { 
-        ${"valueXsw".$cont} = "";
+        ${"valueXsw".$cont} = array();
+        ${"valueYsw".$cont} = array();
+        echo "Switch: ".$lista_switches[$i];
+        $consulta = mysqli_query($conexionBase,'select dia,medido from diario_ps where ubicacion = "'.$lista_switches[$i].'""');
+        while(mysqli_fetch_row($consulta)){
+            $datoX = $ver[0];
+            $datoY = $ver[1];
+            ${"valueXsw".$cont} = json_encode($datoX);
+            ${"valueYsw".$cont} = json_encode($datoY);
+        }
     }
 }
 ?>

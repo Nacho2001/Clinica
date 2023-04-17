@@ -1,16 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../Chart.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+</body>
+</html>
 <?php
-$arreglo1=array();
-$arreglo2=array();
-$arreglo1=["1","2"];
-print_array($arreglo1);
-$arreglo2=["3","4"];
-print_array($arreglo2);
-$arreglo1[]=$arreglo2;
-print_array($arreglo1);
-
-function print_array($arreglo){
-    for ($i=0; $i < count($arreglo); $i++) { 
-        echo $arreglo[$i];
-    }
-}
 ?>
