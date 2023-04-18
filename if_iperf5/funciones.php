@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $switch = $_POST['switch'];
     array_push($lista_switches,$switch);
 }*/
-if($_SERVER["REQUEST_METHOD"] == "GET"){
+if($_SERVER["REQUEST_METHOD"] == "GET"){ //Pendiente a completar
     $cont=0;
     for ($i=0; $i < count($lista_switches); $i++) { 
         ${"valueXsw".$cont} = array();

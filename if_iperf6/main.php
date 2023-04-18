@@ -15,18 +15,5 @@ function host($conexion){
     };
 };
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $switch = $_POST['switch'];
-    $valueX = array();
-    $valueY = array();
-    $resp = mysqli_query($conn,'select dia,medido from diario_ps where ubicacion = "'.$switch.'"');
-    while($ver = mysqli_fetch_row($resp)){
-        $datoX = $ver[0];
-        $datoY = $ver[1];
-        $valueX[] = json_encode($datoX);
-        $valueY[] = json_encode($datoY);
-    }
-
-}
-
+// Crear arrays con los valores x y el value y
 ?>
