@@ -27,7 +27,7 @@ $linkorigesc =  $_POST['link-orig-esc'];
 				<input name="ip_send" value="<?php echo $ip; ?>" hidden> <!-- Tambien envia la ip del cliente -->
 				<button id="freebot" type="submit" class="button">Ingresar</button><!--Boton submit, id freebot aplica estilo-->
 			</form>
-			<p><span style="color: rgb(6, 17, 114); font-size: 16px">Ingrese un email para recibir un voucher o <br>puede elegir navegar por 10 minutos</span></p><!--Mensaje de instruccion-->
+			<p><span style="color: rgb(6, 17, 114); font-size: 16px">Ingrese un email para recibir un código de acceso o puede elegir navegar por 10 minutos</span></p><!--Mensaje de instruccion-->
 			<form action="accion2.php" method="post">
 				<input name="backlink" value="<?php echo $linkloginonly; ?>?dst=<?php echo $linkorigesc; ?>&username=T-<?php echo $macesc; ?>" hidden>
 				<button type="submit" class="boton">Navegar por 10 minutos</button>
