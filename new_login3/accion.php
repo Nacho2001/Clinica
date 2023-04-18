@@ -64,8 +64,8 @@ function voucher_mail($preIP, $hotspot, $email, $Vcode){
         ));
         $api->comm("/tool/e-mail/send", array(
             "to" => $email, // Destinatario
-            "subject" => "Código de voucher Wi-Fi Clinica Pasteur", // Asunto del mail
-            "body" => "Su código de voucher es: $Vcode", // Cuerpo del mensaje
+            "subject" => "Código de acceso Wi-Fi Clinica Pasteur", // Asunto del mail
+            "body" => "Su código de acceso es: $Vcode", // Cuerpo del mensaje
         ));
     }
 }
