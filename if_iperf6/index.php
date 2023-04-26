@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Chart.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -23,7 +24,7 @@
         </div>
     </form>
     <button style="margin-top: 5px" onclick="grafico()">Ver grafico</button>
-    <div style="background-color: orange; ">
+    <div style="background-color: yellow; margin-top: 10px;">
         <canvas id="chart" hidden></canvas>
     </div>
 </body>
@@ -34,13 +35,13 @@
         new Chart("chart", {
             type: "line",
             data: {
-                labels: [<?php for($i=0;$i<count($array_X);$i++){echo $array_X[$i].',';} ?>],
+                labels: [<?php for($i=0;$i<count($arrayX);$i++){echo $arrayX[$i].',';} ?>],
                 datasets: [{
-                    data: [<?php for($i=0;$i<count($array_Y1);$i++){echo $array_Y1[$i].',';} ?>],
+                    data: [<?php for($i=0;$i<count($arrayY1);$i++){echo $arrayY1[$i].',';} ?>],
                     borderColor: "green",
                     fill: false
                 },{
-                    data: [<?php for($i=0;$i<count($array_Y2);$i++){echo $array_Y2[$i].',';} ?>],
+                    data: [<?php for($i=0;$i<count($arrayY2);$i++){echo $arrayY2[$i].',';} ?>],
                     borderColor: "red",
                     fill: false
                 }]
