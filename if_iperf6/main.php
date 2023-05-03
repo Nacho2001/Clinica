@@ -27,6 +27,7 @@ function valoresX($enlace){
 }
 
 function valoresY($enlace,$switch){
+    $arrayY[] = array();
     $resp = mysqli_query($enlace, 'select medido from diario_ps where host = "'.$switch.'"');
     while($column = mysqli_fetch_array($resp)){
         $arrayY[] = json_encode($column['medido']);
