@@ -24,7 +24,7 @@
         </div>
     </form>
     <button style="margin-top: 5px" onclick="grafico()">Ver grafico</button>
-    <div style="background-color: yellow; margin-top: 10px;">
+    <div style="background-color: white; margin-top: 10px; width: 50%; height: 100%">
         <canvas id="chart" hidden></canvas>
     </div>
 </body>

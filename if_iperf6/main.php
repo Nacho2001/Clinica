@@ -17,18 +17,18 @@ function host($conexion){
 
 // Crear arrays con los valores x y el value y
 function valoresX($enlace){
-    $arrayX[] = array();
+    $values = array();
     $resp = mysqli_query($enlace, "select distinct dia from diario_ps");
     while($column = mysqli_fetch_array($resp)){
-        $arrayX[] = json_encode($column['dia']);
+        $ver = $column['dia'];
+        $values[] = json_encode($ver);
     }
-    array_splice($arrayX,0);
-    return $arrayX;
+    return $values;
 }
 
 function valoresY($enlace,$switch){
-    $arrayY[] = array();
-    $resp = mysqli_query($enlace, 'select medido from diario_ps where host = "'.$switch.'"');
+    $arrayY = array();
+    $resp = mysqli_query($enlace, 'select medido from diario_ps where ubicacion = "'.$switch.'"');
     while($column = mysqli_fetch_array($resp)){
         $arrayY[] = json_encode($column['medido']);
     }
@@ -39,8 +39,10 @@ function valoresY($enlace,$switch){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $switch1 = $_POST['switch1'];
     $switch2 = $_POST['switch2'];
-    $arrayX = valoresX($conn);
-    //for($i=0;$i<count($arrayX);$i++){echo $arrayX[$i].',';}
+    $arrayX = array();
+    $arrayY1 = array();
+    $arrayY2 = array();
+    $arrayX=valoresX($conn);
     $arrayY1 = valoresY($conn,$switch1);
     $arrayY2 = valoresY($conn,$switch2);
 }
