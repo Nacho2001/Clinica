@@ -25,7 +25,7 @@ $linkorigesc =  $_POST['link-orig-esc'];
 				<div id="campo" style="margin-top: 5px"><input id="email" class="campos" name="email" type="email" placeholder="Correo electronico" required></div> <!--Campo de email (obligatorio)-->
 				<input name="backlink" value="<?php echo $linkloginonly; ?>?dst=<?php echo $linkorigesc; ?>&username=T-<?php echo $macesc; ?>" hidden> <!--Almacena el enlace de regreso al mk, el cual se envia a accion.php para la redireccion-->
 				<input name="ip_send" value="<?php echo $ip; ?>" hidden> <!-- Tambien envia la ip del cliente -->
-				<button id="freebot" type="submit" class="button">Ingresar</button><!--Boton submit, id freebot aplica estilo-->
+				<button id="freebot" onclick="mensaje()" type="submit" class="button">Ingresar</button><!--Boton submit, id freebot aplica estilo-->
 			</form>
 			<p><span style="color: rgb(6, 17, 114); font-size: 16px">Ingrese un email para recibir un código de acceso o puede elegir navegar por 10 minutos</span></p><!--Mensaje de instruccion-->
 			<form action="accion2.php" method="post">
@@ -41,4 +41,9 @@ $linkorigesc =  $_POST['link-orig-esc'];
 	<br>
 	<p></p>
 </body>
+<script>
+function mensaje(){
+	alert("Tiene 10 minutos para verificar su email, luego ingrese el código cuando se le solicite")
+}
+</script>
 </html>
