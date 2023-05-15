@@ -16,7 +16,7 @@ enrutador.get('/switches', (req,res) => {
 // Consigue datos de un unico switch
 enrutador.get('/switches/:switch', async (req,res) => {
     const id = req.params.codigo;
-    await db.query('select medido from diario_ps', (err, rows) => {
+    await db.query('select dia,medido from diario_ps where ubicacion = ?',[id], (err, rows) => {
         if(err){
             console.log("Error al obtener switch")
         }else{
@@ -24,3 +24,5 @@ enrutador.get('/switches/:switch', async (req,res) => {
         }
     })
 })
+
+module.exports = enrutador
