@@ -1,7 +1,7 @@
 const db = require('../config/db');
 
 //Obtiene lista de switches
-exports.listaSwitchers = async () => {
+exports.listarSwitches = async () => {
     const [rows,fields] = await db.execute('select switch from switches');
     console.log(rows);
     return rows;
@@ -13,3 +13,9 @@ exports.obtenerX = async () => {
     console.log(rows);
     return rows;
 } 
+
+exports.obtenerY = async (ubicacion) => {
+    const [rows,fields] = await db.execute('select medido from diario_ps where ubicacion = ?', [ubicacion]);
+    return rows;
+}
+
