@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h5>Seleccion de switches</h5>
+    <select id="select">
+        <option value="0">Switch</option>
+    </select>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.get("http://localhost:9770/switches", (resp) => {
+                const {success,data} = resp;
+                if(success){
+                    data.forEach(ubicacion => {
+                        console.log(ubicacion)
+                        $("#select").append(
+                            `<option value='${ubicacion.switch}'>${ubicacion.switch}</option>`
+                        )
+                    });
+                }
+            })
+        })
+    </script>
+</body>
+</html>
