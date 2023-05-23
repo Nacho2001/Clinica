@@ -8,6 +8,7 @@ exports.listarSwitches = async (req,res) => {
             data:switches
         })
     } catch (error) {
+        console.log(error)
         res.status(500).json({
             sucess:false,
             message:"Error al obtener los switches"

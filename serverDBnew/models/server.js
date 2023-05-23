@@ -4,11 +4,11 @@ const cors = require('cors');
 class Server {
     constructor(){
         this.app = express();
-        this.routes();
         this.middlewares();
+        this.routes();
     }
     routes(){
-        this.app.use('/api/switches', require('../routes/switchesRoute'))
+        this.app.use('/switches', require('../routes/switchesRoute'))
     }
     middlewares(){
         this.app.use(express.json());

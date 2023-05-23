@@ -1,4 +1,5 @@
-const config = require('detenv');
+/*
+const config = require('dotenv');
 const dbConfig = () => {
     return {
         host: process.env.DB_HOST,
@@ -7,3 +8,4 @@ const dbConfig = () => {
         password: process.env.DB_PASSWORD
     }
 }
+*/
