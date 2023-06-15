@@ -56,17 +56,16 @@ export default {
         },
         obtenerY(){
             for (let i1 = 0; i1 < this.mySwitches.length; i1++) {
-                let Y$i1 = []
+                this.valuesY[i1] = []
                 axios.get(`http://localhost:9770/switches/dataY/${this.mySwitches[i1]}`)
                 .then(result => {
                     let objetoDatoY = (result.data.data)
                     for (let i2 = 0; i2 < objetoDatoY.length; i2++) {
-                        Y$i1.push(objetoDatoY[i2].medido)
+                        this.valuesY[i1].push(objetoDatoY[i2].medido)
                         
                     }
                 })
-                Y$i1.push(this.valuesY)
-                console.log(this.valuesY)
+                this.valuesY[i1].push(this.valuesY)
             }
         },
         getSwitch(){
