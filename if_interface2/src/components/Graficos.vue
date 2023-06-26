@@ -11,9 +11,13 @@
             </div>
             <button @click="obtenerY()">Ver elegidos</button>
         </div>
+        <div style="background-color: white; margin-top: 10px; width: 50%; height: 100%">
+            <canvas id="grafico"></canvas>
+        </div>
     </div>
 </template>
 <script>
+
 const axios = require('axios');
 
 export default {
@@ -72,6 +76,20 @@ export default {
             let host = document.getElementById("switch").value
             document.getElementById("switchList").append(`${host} `)
             this.mySwitches.push(host);
+        },
+        /*graficar(){
+            document.getElementById("grafico") = `<canvas id="chart" style="width:250px"></canvas>`;
+            new Char("chart", {
+                type: "line",
+                data: {
+                    labels: []
+                }
+            })
+        },*/
+        devolverX(){
+            this.valuesX.forEach(element => {
+                console.log(element)
+            });
         }
     },
     mounted(){
