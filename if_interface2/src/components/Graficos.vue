@@ -9,7 +9,7 @@
             <div style="margin-top: 1%;">
                 Switches seleccionados: <a id="switchList"></a>
             </div>
-            <button @click="obtenerY()">Ver elegidos</button>
+            <button @click="devolverX()">Ver elegidos</button>
         </div>
         <div style="background-color: white; margin-top: 10px; width: 50%; height: 100%">
             <canvas id="grafico"></canvas>
