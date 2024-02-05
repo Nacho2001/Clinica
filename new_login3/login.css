@@ -111,7 +111,7 @@ body {
         @media (max-width:450px){
     
            }
-    #freebot{
+    .freebot{
       
         -webkit-appearance:none;color:#fff;
         background:#0e9f3a; 
@@ -127,6 +127,20 @@ body {
         margin-top: 8px;
     }
     
+    .botonRed{
+        /*-webkit-appearance:none;*/
+        color:#fff;
+        background:#8f1d01; 
+        background-repeat: no-repeat; 
+        background-position: 75% 57%; 
+        opacity: 1;
+        border:none;
+        border-radius:5px;
+        height:42px;width:234px;font-size:16px;font-weight:400;
+        cursor:pointer;
+        display:inline-block;
+        margin-top: 8px;
+    }
     #boton_qr{
         color:#fff;
         background:#0e489f; 

@@ -25,12 +25,18 @@ $linkorigesc =  $_POST['link-orig-esc'];
 				<div id="campo" style="margin-top: 5px"><input id="email" class="campos" name="email" type="email" placeholder="Correo electronico" required></div> <!--Campo de email (obligatorio)-->
 				<input name="backlink" value="<?php echo $linkloginonly; ?>?dst=<?php echo $linkorigesc; ?>&username=T-<?php echo $macesc; ?>" hidden> <!--Almacena el enlace de regreso al mk, el cual se envia a accion.php para la redireccion-->
 				<input name="ip_send" value="<?php echo $ip; ?>" hidden> <!-- Tambien envia la ip del cliente -->
-				<button id="freebot" onclick="mensaje()" type="submit" class="button">Ingresar</button><!--Boton submit, id freebot aplica estilo-->
+				<button class="freebot" onclick="mensaje()" type="submit">Ingresar</button><!--Boton submit, id freebot aplica estilo-->
 			</form>
 			<p><span style="color: rgb(6, 17, 114); font-size: 16px">Ingrese un email para recibir un código de acceso o puede elegir navegar por 10 minutos</span></p><!--Mensaje de instruccion-->
 			<form action="accion2.php" method="post">
 				<input name="backlink" value="<?php echo $linkloginonly; ?>?dst=<?php echo $linkorigesc; ?>&username=T-<?php echo $macesc; ?>" hidden>
 				<button type="submit" class="boton">Navegar por 10 minutos</button>
+			</form>
+			<button class="botonRed" onclick="visualizar()">Ya tengo un código</button>
+			<form action="accion3.php" method="post" id="voucherCampo" style="margin-top: 10px" hidden>
+				<input name="backlink" value="<?php echo $linkloginonly; ?>?dst=<?php echo $linkorigesc; ?>&username=" hidden>
+				<input type="text" class="campos" name="username" placeholder="Código de ingreso">
+				<button type="submit" class="freebot">Ingresar</button>
 			</form>
 		</div>
 	</center>
@@ -44,6 +50,10 @@ $linkorigesc =  $_POST['link-orig-esc'];
 <script>
 function mensaje(){
 	alert("Tiene 10 minutos para verificar su email, luego ingrese el código cuando se le solicite")
+}
+function visualizar(){
+	let campoVoucher = document.getElementById("voucherCampo")
+	campoVoucher.removeAttribute("hidden")
 }
 </script>
 </html>
